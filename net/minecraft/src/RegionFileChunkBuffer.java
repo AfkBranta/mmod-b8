@@ -1,0 +1,27 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package net.minecraft.src;
+
+import java.io.ByteArrayOutputStream;
+import net.minecraft.src.RegionFile;
+
+class RegionFileChunkBuffer
+extends ByteArrayOutputStream {
+    private int field_22283_b;
+    private int field_22285_c;
+    final RegionFile field_22284_a;
+
+    public RegionFileChunkBuffer(RegionFile regionFile1, int i2, int i3) {
+        super(8096);
+        this.field_22284_a = regionFile1;
+        this.field_22283_b = i2;
+        this.field_22285_c = i3;
+    }
+
+    @Override
+    public void close() {
+        this.field_22284_a.func_22203_a(this.field_22283_b, this.field_22285_c, this.buf, this.count);
+    }
+}
+
